@@ -1,0 +1,35 @@
+#include <Arduino_FreeRTOs.h>
+#define RED     6
+#define YELLOW  7
+#define RED     8
+
+typedef int TaskProfiler;
+
+TaskProfiler  RedLEDProfiler;
+TaskProfiler  YellowLEDProfiler;
+TaskProfiler  BlueLEDProfiler;
+
+void setup()
+{
+  Serial.begin(9600);
+  xTaskCreate(redLedControllerTask,
+              "Red LED Task",
+              100, // stack size. 128 is max b/c limited by arduino memory
+              NULL,
+              1,
+              NULL
+              );
+ xTaskCreate(blueLedControllerTask,
+             "Blue LED Task",
+             100,
+             NULL,
+             1,
+             NULL);
+ xTaskCreate(yellowLedControllerTask,
+             "Yellow LED Task",
+             100,
+             NULL,
+             1,
+             NULL
+             );
+}
