@@ -12,11 +12,10 @@ TaskProfiler YellowLEDProfiler;
 TaskProfiler BlueLEDProfiler;
 
 void setup() {
-   Serial.begin(9600);
-   
-   xTaskCreate(redLedControllerTask,"RED LED Task",128,NULL,1,NULL);
-  // xTaskCreate(blueLedControllerTask,"BLUE LED Task",128,NULL,1,NULL);
-   xTaskCreate(yellowLedControllerTask,"YELLOW LED Task",128,NULL,1,NULL);
+  Serial.begin(9600);
+  xTaskCreate(redLedControllerTask,"RED LED Task",128,NULL,1,NULL);
+  //xTaskCreate(blueLedControllerTask,"BLUE LED Task",128,NULL,1,NULL);
+  xTaskCreate(yellowLedControllerTask,"YELLOW LED Task",128,NULL,1,NULL);
 
 
 }
@@ -59,8 +58,8 @@ void yellowLedControllerTask(void *pvParameters)
     Serial.print("YellowLEDProfiler : ");
     Serial.println(YellowLEDProfiler);
    
-   // digitalWrite(YELLOW,digitalRead(YELLOW)^1);
-  delay(300);
+    // digitalWrite(YELLOW,digitalRead(YELLOW)^1);
+    delay(300);
   }
 }
 void loop() {}
