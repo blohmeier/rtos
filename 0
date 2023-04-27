@@ -55,8 +55,5 @@ void yellowLedControllerTask(void *pvParameters)
 }
 
 void loop() {
-  // digitalWrite(RED,digitalRead(RED)^1);
-  // digitalWrite(BLUE,digitalRead(BLUE)^1);
-  // digitalWrite(YELLOW,digitalRead(YELLOW)^1);
-  // delay(20);
+
 }
